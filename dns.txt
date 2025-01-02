@@ -1,0 +1,17 @@
+# options
+timeout     5s
+# ttl       60s
+reload      10s
+
+# prefer    ipv6
+
+# ip        1.2.3.4
+
+# ip[:port] [protocol] [hostname]
+114.114.114.114
+8.8.8.8
+8.8.8.8     tcp
+1.1.1.1     udp
+1.1.1.1:53  tcp-chain
+1.1.1.1:853 tls     cloudflare-dns.com
+https://1.0.0.1/dns-query   https-chain

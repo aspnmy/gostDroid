@@ -23,6 +23,41 @@ gost是一个支持http和socks的代理服务器项目，由`ginuerzh`开发并
 ### gostDroid使用方法
 具体使用方法请查看上游说明 https://github.com/ginuerzh/gost
 
+
+### 快速使用
+- admin:123456@ 代理认证
+- 协议支持：http2、socks、mwss(多路复用加密ws)
+-  多用户认证：?secrets=secrets.txt
+-  指定多DNS解析：?dns=dns.txt
+```bash
+# 单用户认证启动-支持https-wss、http2、sock5、mwss
+gost -L=http+wss://admin:123456@:444 -L=http2://admin:123456@:443 -L=socks5://admin:123456@:1080 -L=mwss://admin:123456@:8080?path=/ws&rbuf=4096&wbuf=4096&compression=true
+```
+
+```bash
+# 多用认证启动-支持https-wss、http2、sock5、mwss
+gost -L=http+wss://:444?secrets=secrets.txt -L=http2://:443?secrets=secrets.txt -L=socks5://:1080?secrets=secrets.txt -L=mwss://:8080?secrets=secrets.txt?path=/ws&rbuf=4096&wbuf=4096&compression=true
+```
+
+```bash
+# 单用户认证并支持单DNS服务解析-支持https-wss、http2、sock5、mwss
+gost -L=http+wss://admin:123456@:444?dns=8.8.8.8,114.114.114.114,1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.0.0.1/dns-query -L=http2://admin:123456@:443?dns=8.8.8.8,114.114.114.114,1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.0.0.1/dns-query -L=socks5://admin:123456@:1080?dns=8.8.8.8,114.114.114.114,1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.0.0.1/dns-query -L=mwss://admin:123456@:8080?dns=8.8.8.8,114.114.114.114,1.1.1.1:53/tcp,1.1.1.1:853/tls,https://1.0.0.1/dns-query?path=/ws&rbuf=4096&wbuf=4096&compression=true
+```
+
+
+```bash
+# 多用户认证并支持多DNS服务解析-支持https-wss、http2、sock5、mwss
+gost -L=http+wss://:444?secrets=secrets.txt?dns=dns.txt -L=http2://:443?secrets=secrets.txt?dns=dns.txt -L=socks5://:1080?secrets=secrets.txt?dns=dns.txt -L=mwss://:8080?secrets=secrets.txt?dns=dns.txt?path=/ws&rbuf=4096&wbuf=4096&compression=true
+```
+
+### gostWeb_UI
+- 如需要使用Web管理端管理gost-server，请使用下面项目
+
+```git
+https://github.com/aspnmy/gost-ui.git
+```
+
+
 特别注意的是，应用在后台运行可能会被安卓电量管理终止掉，因此，如果要后台运行，请将其添加进白名单。
 
 ### gostDroid 最新版本
