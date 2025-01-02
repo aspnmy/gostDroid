@@ -8,38 +8,38 @@ GOBUILD=CGO_ENABLED=0 go build --ldflags="-s -w" -v -x -a
 GOFILES=*.go
 
 PLATFORM_LIST = \
-	linux-amd64 \
-	# linux-arm64
+	linux_amd64 \
+	# linux_arm64
 
 WINDOWS_ARCH_LIST = \
-	windows-amd64 \
-	windows-arm64
+	windows_amd64 \
+	windows_arm64
 
-linux-amd64:
+linux_amd64:
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build --ldflags="-s -w" -v -x -a -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@ $(GOFILES)
 
-linux-arm64:
+linux_arm64:
 	GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build --ldflags="-s -w" -v -x -a -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@ $(GOFILES)
 
-darwin-amd64:
+darwin_amd64:
 	GOOS=darwin GOARCH=amd64 $(GOBUILD) -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@ $(GOFILES)
 
-darwin-arm64:
+darwin_arm64:
 	GOOS=darwin GOARCH=arm64 $(GOBUILD) -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@ $(GOFILES)
 
 # https://github.com/tc-hib/go-winres
-windows-amd64:
+windows_amd64:
 	GOOS=windows GOARCH=amd64 go-winres make --in winres/winres.json --out winres/rsrc
 	GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-s -w -H windowsgui" -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@.exe $(GOFILES)
 
-windows-arm64:
+windows_arm64:
 	GOOS=windows GOARCH=arm64 go-winres make --in winres/winres.json --out winres/rsrc
 	GOOS=windows GOARCH=arm64 CGO_ENABLED=0 go build -ldflags="-s -w -H windowsgui" -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@.exe $(GOFILES)
 
 # go install gioui.org/cmd/gogio@latest
 android:
-	gogio -x -work -target android -minsdk 22 -targetsdk 33 -Apk_Version $(Apk_Version).1 -name GOST -signkey build/sign.keystore -signpass android -appid gost.run -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version).aab .
-	gogio -x -work -target android -minsdk 22 -targetsdk 33 -Apk_Version $(Apk_Version).1 -name GOST -signkey build/sign.keystore -signpass android -appid gost.run -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version).apk .
+	gogio -x -work -target android -minsdk 22 -targetsdk 33 -Version $(Apk_Version).1 -name GOST -signkey build/sign.keystore -signpass android -appid gost.run -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version).aab .
+	gogio -x -work -target android -minsdk 22 -targetsdk 33 -Version $(Apk_Version).1 -name GOST -signkey build/sign.keystore -signpass android -appid gost.run -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version).apk .
 
 gz_releases=$(addsuffix .gz, $(PLATFORM_LIST))
 zip_releases=$(addsuffix .zip, $(WINDOWS_ARCH_LIST))
