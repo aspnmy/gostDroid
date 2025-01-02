@@ -20,7 +20,7 @@ linux-amd64:
 
 linux-arm64:
 	GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build --ldflags="-s -w" -v -x -a -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@ $(GOFILES)
-    
+
 darwin-amd64:
 	GOOS=darwin GOARCH=amd64 $(GOBUILD) -o $(BINDIR)/$(NAME)_$(Gost_Apk_Version)_$(Apk_Version)_$@ $(GOFILES)
 
