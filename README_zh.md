@@ -6,7 +6,7 @@
 
 # releases 版本说明
 - gostDroid_apk_v1.0 是原作者4年前(最后更新时间2019年4月)分支对应的版本，gost版本为v1.9.0
-- gostDroid_dev_apk_v2.5.0_gost2.12.0  系列是对应我自己dev分支的版本，_gost2.12.0代表支持gost官方v2.12.0版本，_v2.5.0为我维护的文件的apk版本号
+- gostDroid_dev_apk_gost2.12.0_v2.5.0  系列是对应我自己dev分支的版本，_gost2.12.0代表支持gost官方v2.12.0版本，_v2.5.0为我维护的文件的apk版本号
 
 # 群组
 https://t.me/+eq8FgfNVNIY3NWNk
