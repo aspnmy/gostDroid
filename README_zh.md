@@ -1,3 +1,6 @@
+# dev版本说明
+gostDroid 原作者4年不更新了，dev分支是我自己更新的分支，主要和gost的版本保持一致
+
 # gostDroid
 
 [README](README.md) | [中文文档](README_zh.md)
@@ -20,4 +23,4 @@ gost是一个支持http和socks的代理服务器项目，由`ginuerzh`开发并
 特别注意的是，应用在后台运行可能会被安卓电量管理终止掉，因此，如果要后台运行，请将其添加进白名单。
 
 ### gostDroid 最新版本
-gostDroid最新版本可在[release地址](https://github.com/rankaiyx/gostDroid/releases)查看下载。
+gostDroid最新版本可在[release地址](https://github.com/aspnmy/gostDroid/releases)查看下载。
