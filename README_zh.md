@@ -1,6 +1,9 @@
 # dev版本说明
 gostDroid 原作者4年不更新了，dev分支是我自己更新的分支，主要和gost的版本保持一致
 
+# 群组
+https://t.me/+eq8FgfNVNIY3NWNk
+
 # gostDroid
 
 [README](README.md) | [中文文档](README_zh.md)
