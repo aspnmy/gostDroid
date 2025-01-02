@@ -3,5 +3,5 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.org.rankaiyx.gostdroid.MainActivity"
+    tools:context="cn.org.aspnmy.gostdroid.MainActivity"
     tools:ignore="MergeRootFrame" />

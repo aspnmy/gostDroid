@@ -1,4 +1,4 @@
-package cn.org.rankaiyx.gostdroid;
+package cn.org.aspnmy.gostdroid;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-import cn.org.rankaiyx.gostdroid.R;
+import cn.org.aspnmy.gostdroid.R;
 import android.content.Context;
 
 import android.os.Bundle;
