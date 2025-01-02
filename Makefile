@@ -1,6 +1,6 @@
 # https://gioui.org/doc/install
 
-NAME=gostctl
+NAME=gostDroid_dev
 BINDIR=bin
 Apk_Apk_Version=$(shell cat apk_Apk_Version/apk_Apk_Version.go | grep 'Apk_Apk_Version =' | sed 's/.*\"\(.*\)\".*/\1/g')
 Gost_Apk_Version=$(shell cat gost_Apk_Version/gost_Apk_Version.go | grep 'Gost_Apk_Version =' | sed 's/.*\"\(.*\)\".*/\1/g')
