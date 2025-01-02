@@ -1,3 +1,5 @@
+
+
 package cn.org.aspnmy.gostdroid_dev;
 
 import java.io.BufferedReader;
@@ -27,28 +29,25 @@ public class MainActivity extends ActionBarActivity {
 	private EditText et_cmd;
 	private String app_path;
 	private TextView tv_result;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_activity);
-		
+
 		/*初始化控件*/
 		et_cmd = (EditText) findViewById(R.id.et_cmd);
 		tv_result = (TextView) findViewById(R.id.tv_result);
 		/* 获取app安装路径 */
 		app_path = getApplicationContext().getFilesDir().getAbsolutePath();
-		
 		//复制gost程序文件
 		varifyFile(getApplicationContext(), "gost");
-		
-		
+
+
 		String initcmd =  "." + app_path + "/gost -L=:1080?dns=114.114.114.114:53/tcp";
 		et_cmd.setText(initcmd);
-		
-		
-		
-	    initcmd =  "netstat -tnl";
+
+		initcmd =  "netstat -tnl";
 		List<String> results = exe(initcmd,true);
 
 		String result = "";
@@ -56,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
 		for(String line : results){
 			result += line + "\n";
 		}
-		tv_result.setText(result);	
+		tv_result.setText(result);
 	}
 
 
@@ -68,19 +67,18 @@ public class MainActivity extends ActionBarActivity {
 		case R.id.exe: /* 执行Editext中的命令 */
 			String cmd = et_cmd.getText().toString();
 			/* 执行脚本命令 */
-			
+
 			exe(cmd,false);
-			
+
 			try{
 				TimeUnit.MILLISECONDS.sleep(3000); //MILLISECONDS表示以毫秒为单位延时
 			}
 			catch (Exception e) {
                 e.printStackTrace();
             }
-			
+
 			cmd = "netstat -tnl";
 			List<String> results = exe(cmd,true);
-			
 
 			String result = "";
 			/* 将结果转换成字符串, 输出到 TextView中 */
@@ -101,7 +99,7 @@ public class MainActivity extends ActionBarActivity {
 
         try {
         	/* 查看文件是否存在, 如果不存在就会走异常中的代码 */
-        	context.openFileInput(fileName);
+			context.openFileInput(fileName);
         } catch (FileNotFoundException notfoundE) {
             try {
             	/* 拷贝文件到app安装目录的files目录下 */
@@ -115,7 +113,7 @@ public class MainActivity extends ActionBarActivity {
             }
         }
     }
-	
+
 	/** 将文件从assets目录中拷贝到app安装目录的files目录下 */
 	private void copyFromAssets(Context context, String source,
 			String destination) throws IOException {
@@ -137,19 +135,18 @@ public class MainActivity extends ActionBarActivity {
 		/* 关闭输出流 */
 		output.close();
 	}
-	
 	/** 执行 shell 脚本命令 */
 	private List<String> exe(String cmd,boolean enable_results_show) {
 		/* 获取执行工具 */
-		Process process = null; 
+		Process process = null;
 		/* 存放脚本执行结果 */
         List<String> list = new ArrayList<String>();  
-        try {  
+        try {
         	/* 获取运行时环境 */
-        	Runtime runtime = Runtime.getRuntime();
+			Runtime runtime = Runtime.getRuntime();
         	/* 执行脚本 */
             process = runtime.exec(cmd); 
-            
+
             String line = null; 
             /* 获取脚本结果的输入流 */
             if(enable_results_show == true)
