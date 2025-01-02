@@ -1,5 +1,12 @@
 # dev版本说明
-gostDroid 原作者4年不更新了，dev分支是我自己更新的分支，主要和gost的版本保持一致
+- gostDroid master分支原作者4年(最后更新时间2019年4月)不更新了，
+- dev分支是我自己更新的分支，主要和gost的版本保持一致
+- 原版本:https://github.com/rankaiyx/gostDroid.git
+- 为了方便管理，rankaiyx/gostDroid 的master分支已经删除了，避免拉库异常
+
+# releases 版本说明
+- gostDroid_apk_v1.0 是原作者4年前(最后更新时间2019年4月)分支对应的版本，gost版本为v1.9.0
+- gostDroid_dev_apk_v2.5.0_gost2.12.0  系列是对应我自己dev分支的版本，_gost2.12.0代表支持gost官方v2.12.0版本，_v2.5.0为我维护的文件的apk版本号
 
 # 群组
 https://t.me/+eq8FgfNVNIY3NWNk
@@ -13,9 +20,8 @@ gost是一个支持http和socks的代理服务器项目，由`ginuerzh`开发并
 [![API](https://img.shields.io/badge/API-19%2B-green.svg?style=plastic)](https://android-arsenal.com/api?level=19)
 [![license](https://img.shields.io/github/license/switch-iot/hin2n.svg?style=plastic)](https://www.gnu.org/licenses/gpl-3.0)
 
-
-
 ### gostDroid是什么
+
 - gostDroid是支持http和socks的安卓设备代理服务器软件
 - 该APP不需要root
 - 该APP暂时只支持安卓设备
